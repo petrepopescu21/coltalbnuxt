@@ -12,7 +12,8 @@ const state = {
     currentPage: undefined,
     totalPages: undefined,
     test: undefined,
-    postItems: undefined
+    postItems: undefined,
+    dogs: undefined,
 }
 
 // mutations are operations that actually mutates the state.
@@ -21,6 +22,9 @@ const state = {
 // mutations must be synchronous and can be recorded by plugins
 // for debugging purposes.
 const mutations = {
+    setDogs(state, data){
+        state.dogs = data
+    },
     updateLang(state, lang) {
         state.lang = lang
     },
@@ -60,16 +64,18 @@ const mutations = {
 // actions are functions that causes side effects and can involve
 // asynchronous operations.
 const actions = {
-    nuxtServerInit({ commit }, { req }) {
-        axios.get(process.env.baseUrl + '/api/data').then((res) => {
-            console.log(res.data.labels[res.data.lang])
+    async nuxtServerInit({ commit }, { req }) {
+        await axios.get(process.env.baseUrl + '/api/data').then((res) => {
             commit('setRawLabels', res.data.labels)
             commit('setLabels', res.data.labels[res.data.lang])
+            commit('updateLang',res.data.lang)
+            commit('setDogs',res.data.dogs)
         })
     },
     updateLang({commit,state},lang) {
+        commit('setLabels',state.rawLabels[lang])
         commit('updateLang',lang)
-        commit('setLabels',state.rawLabels.lang)
+        
     }
 }
 
@@ -102,6 +108,9 @@ const getters = {
     },
     getRawLabels: state => {
         return state.rawLabels
+    },
+    getDogs: state => {
+        return state.dogs
     }
 }
 

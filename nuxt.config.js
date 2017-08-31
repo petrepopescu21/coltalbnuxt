@@ -18,9 +18,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/icon?family=Material+Icons'},
       { rel: 'stylesheet', type: 'text/css', href: 'https://code.getmdl.io/1.3.0/material.light_blue-pink.min.css'}
-    ],
-    script: [
-      { src: "https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"}
     ]
   },
   /*

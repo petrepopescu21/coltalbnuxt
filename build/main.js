@@ -65,14 +65,14 @@ module.exports =
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(7);
+module.exports = __webpack_require__(9);
 
 
 /***/ },
@@ -89,8 +89,7 @@ module.exports = {
   head: {
     title: 'starter',
     meta: [{ charset: 'utf-8' }, { name: 'viewport', content: 'width=device-width, initial-scale=1, minimum-scale=1' }, { hid: 'description', name: 'description', content: 'Colt Alb' }],
-    link: [{ rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=ro' }, { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }, { rel: 'stylesheet', type: 'text/css', href: 'https://code.getmdl.io/1.3.0/material.light_blue-pink.min.css' }],
-    script: [{ src: "https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js" }]
+    link: [{ rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=ro' }, { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }, { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }, { rel: 'stylesheet', type: 'text/css', href: 'https://code.getmdl.io/1.3.0/material.light_blue-pink.min.css' }]
   },
   /*
   ** Global CSS
@@ -108,20 +107,26 @@ module.exports = {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prismic_io__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prismic_io__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prismic_io___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prismic_io__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_marked__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_marked___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_marked__);
 
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 
 
+
+
 exports.getRawData = function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
-        var api, rawLabels, labels;
-        return __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+    var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee() {
+        var api, rawLabels, rawDogs, dogs, labels;
+        return __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
@@ -135,10 +140,16 @@ exports.getRawData = function () {
 
                     case 5:
                         rawLabels = _context.sent;
-                        labels = processLabels(rawLabels);
-                        return _context.abrupt('return', { labels: labels, lang: 'en' });
+                        _context.next = 8;
+                        return api.query(__WEBPACK_IMPORTED_MODULE_1_prismic_io___default.a.Predicates.at('document.type', 'dogs'));
 
                     case 8:
+                        rawDogs = _context.sent;
+                        dogs = processDogs(rawDogs, 'en');
+                        labels = processLabels(rawLabels);
+                        return _context.abrupt('return', { labels: labels, dogs: dogs, lang: 'en' });
+
+                    case 12:
                     case 'end':
                         return _context.stop();
                 }
@@ -154,9 +165,9 @@ exports.getRawData = function () {
 }();
 
 exports.getData = function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee2() {
         var data;
-        return __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+        return __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
                     case 0:
@@ -207,8 +218,8 @@ function processDogs(data, lang) {
 
         if (item.data['dogs.birthdate']) {
             output.birthdate = item.data['dogs.birthdate'].value;
-            var a = moment();
-            var b = moment(output.birthdate);
+            var a = __WEBPACK_IMPORTED_MODULE_2_moment___default()();
+            var b = __WEBPACK_IMPORTED_MODULE_2_moment___default()(output.birthdate);
 
             var age = a.diff(b, 'months');
             if (age < 12) output.age = 1;
@@ -256,7 +267,7 @@ function processDogs(data, lang) {
             output.longdescription = item.data['dogs.long-description'].value[0];
             for (var k in output.longdescription) {
                 if (lang === k) {
-                    output.longdescription = marked(output.longdescription[k].value, {
+                    output.longdescription = __WEBPACK_IMPORTED_MODULE_3_marked___default()(output.longdescription[k].value, {
                         sanitize: true
                     });
                 }
@@ -304,6 +315,11 @@ function processDogs(data, lang) {
     return returnable;
 }
 
+function nl2br(str) {
+    var breakTag = '<br />';
+    return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+}
+
 /***/ },
 /* 3 */
 /***/ function(module, exports) {
@@ -326,22 +342,34 @@ module.exports = require("nuxt");
 /* 6 */
 /***/ function(module, exports) {
 
-module.exports = require("prismic.io");
+module.exports = require("marked");
 
 /***/ },
 /* 7 */
 /***/ function(module, exports) {
 
-module.exports = require("regenerator-runtime");
+module.exports = require("moment");
 
 /***/ },
 /* 8 */
+/***/ function(module, exports) {
+
+module.exports = require("prismic.io");
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+module.exports = require("regenerator-runtime");
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_koa___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_koa__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_koa_router__ = __webpack_require__(4);
@@ -369,8 +397,8 @@ var port = process.env.PORT || 3000;
 var api_data = {};
 
 router.get('/api/data', function () {
-  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ctx) {
-    return __WEBPACK_IMPORTED_MODULE_0_D_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+  var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.mark(function _callee(ctx) {
+    return __WEBPACK_IMPORTED_MODULE_0_C_Users_a_pepope_projects_coltalbnuxt_node_modules_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:

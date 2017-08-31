@@ -18,7 +18,7 @@
         <nav class="coltalb-navigation mdl-navigation">
   
           <a class="mdl-navigation__link mdl-typography--text-uppercase" to="/">{{labels.contact}}</a>
-          <router-link class="mdl-navigation__link mdl-typography--text-uppercase" to="/">{{labels.desprenoi}}</router-link>
+          <router-link class="mdl-navigation__link mdl-typography--text-uppercase" to="/about">{{labels.desprenoi}}</router-link>
           <router-link class="mdl-navigation__link mdl-typography--text-uppercase" to="/caini">{{labels.adopta}}</router-link>
           <router-link class="mdl-navigation__link mdl-typography--text-uppercase" to="/blog">Blog</router-link>
           <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">{{labels.doneaza}}</button>

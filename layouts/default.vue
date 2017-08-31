@@ -1,26 +1,19 @@
 <template>
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <navbar/>
+    <sidebar/>
     <nuxt/>
-    <my-footer/>
-    
   </div>
-  
 </template>
 
 <script>
-import MyFooter from '../components/Footer.vue'
+
+import Sidebar from '../components/Sidebar.vue'
 import Navbar from '../components/Navbar.vue'
 export default {
   components: {
-    MyFooter,
+    Sidebar,
     Navbar
-  },
-  updated: function () {
-    componentHandler.upgradeDom()
-  },
-  activated: function () {
-    componentHandler.upgradeDom()
   }
 }
 </script>
@@ -33,6 +26,7 @@ body {
 .coltalb-chip {
   background-color: rgba(255, 255, 255, 0);
 }
+
 
 
 /* Disable ugly boxes around images in IE10 */
@@ -466,6 +460,7 @@ a img {
 }
 
 
+
 /**** Mobile layout ****/
 
 @media (max-width: 900px) {
@@ -578,5 +573,4 @@ a img {
     display: none;
   }
 }
-
 </style>

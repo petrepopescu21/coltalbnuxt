@@ -1,10 +1,16 @@
 import Prismic from 'prismic.io'
+import moment from 'moment'
+import marked from 'marked'
+
 
 exports.getRawData = async function getRawData() {
     var api = await Prismic.api("https://coltalb.prismic.io/api")
     var rawLabels = await api.query(Prismic.Predicates.at('document.type', 'labels'))
+    
+    var rawDogs = await api.query(Prismic.Predicates.at('document.type','dogs'))
+    var dogs = processDogs(rawDogs,'en')
     var labels = processLabels(rawLabels)
-    return {labels,lang:'en'}
+    return {labels,dogs,lang:'en'}
 }
 
 exports.getData = async function getData() {
@@ -163,4 +169,9 @@ function processDogs(data, lang) {
     })
 
     return returnable
+}
+
+function nl2br(str) {
+  var breakTag = '<br />';
+  return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
 }

@@ -16,9 +16,12 @@
     "cross-env": "^5.0.1",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
+    "marked": "^0.3.6",
+    "moment": "^2.18.1",
     "nuxt": "^1.0.0-rc3",
     "prismic.io": "^3.5.7",
-    "source-map-support": "^0.4.15"
+    "source-map-support": "^0.4.15",
+    "vue-material": "^0.7.4"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",

@@ -1,15 +1,15 @@
 <template>
-  <footer class="coltalb-footer mdl-mega-footer">
+  <footer v-if="labels" class="coltalb-footer mdl-mega-footer">
     <div class="mdl-mega-footer--top-section">
       <div class="mdl-mega-footer--left-section">
         <button class="mdl-mega-footer--social-btn">
-          <icon class="social-icon" name="facebook-official"></icon>
+          <!--<icon class="social-icon" name="facebook-official"></icon>-->
         </button> &nbsp;
         <button class="mdl-mega-footer--social-btn">
-          <icon class="social-icon" name="instagram"></icon>
+          <!--<icon class="social-icon" name="instagram"></icon>-->
         </button> &nbsp;
         <button class="mdl-mega-footer--social-btn">
-          <icon class="social-icon" name="twitter"></icon>
+          <!--<icon class="social-icon" name="twitter"></icon>-->
         </button>
       </div>
       <div class="mdl-mega-footer--right-section">
